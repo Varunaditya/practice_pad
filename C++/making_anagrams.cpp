@@ -22,8 +22,7 @@ using namespace std;
 int number_needed(string a, string b) {
     int requiredNumber = 0; //this number would be returned
     int i,temp; //for iterations
-    map<char,int> string_A; //mapping the characters of string_A
-    map<char,int> string_B; //mapping the characters of string_B
+    map<char,int> string_A,string_B; //mapping the characters of a and b
     map<char,int>::iterator it; //variable of class iterator for iterating through the maps
     for(i = 0; i < a.length(); i++){
         string_A[a[i]] = string_A[a[i]] + 1; //counting the number of occurences of letters in string_A
