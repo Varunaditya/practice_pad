@@ -9,6 +9,8 @@ Given the root node of a binary tree, can you determine if it's also a binary se
 Complete the function in your editor below, which has 1 parameter: a pointer to the root of a binary tree. It must return a boolean denoting whether or not the binary tree is a binary search tree. You may have to write one or more helper functions to complete this challenge.
 
 Link: https://www.hackerrank.com/challenges/ctci-is-binary-search-tree/problem
+
+Time Complexity: {log(n) + n}
 */
 
 
