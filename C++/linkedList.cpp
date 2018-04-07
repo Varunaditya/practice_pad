@@ -3,7 +3,6 @@ An implementation of singly-linked-list
 */
 
 #include <iostream>
-#include <list>
 using namespace std;
 
 struct node{
@@ -25,16 +24,9 @@ public:
 		node *temp = new node();
 		temp->data = value;
 		temp->next = NULL;
-		if(head == NULL){
-			head = temp;
-			tail = temp;
-			temp = NULL;
-		}
-		else{
-			tail->next = temp;
-			tail = temp;
-			temp = NULL;
-		}
+		head = temp;
+		tail = temp;
+		temp = NULL;
 	}
 
 	void display(){
