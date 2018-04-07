@@ -2,7 +2,6 @@
 An implementation of Doubly Linked List.
 */
 #include <iostream>
-#include <list>
 using namespace std;
 
 struct node{
