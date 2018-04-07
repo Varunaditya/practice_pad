@@ -4,7 +4,7 @@ An implementation of Doubly Linked List.
 #include <iostream>
 using namespace std;
 
-struct node{
+class node{
 	int data;
 	node *next;
 	node *previous;

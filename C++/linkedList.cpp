@@ -5,7 +5,7 @@ An implementation of singly-linked-list
 #include <iostream>
 using namespace std;
 
-struct node{
+class node{
 	int data;
 	node *next;
 };
