@@ -50,7 +50,6 @@ bool search(struct trieNode *root, string key){
 		}
 		traverse = traverse->child[index];
 	}
-    while()
 	return (traverse != NULL);
 }
 
@@ -66,7 +65,7 @@ int main(){
             insert(root, contact);
         }
         else if(op == "find"){
-            cout << search(root, contact) << endl;
+            search(root, contact) ? cout << "Found!" << endl : cout << "Not Found!" << endl;
         }
     }
 	return 0;
