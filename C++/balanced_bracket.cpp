@@ -9,62 +9,35 @@ By this logic, we say a sequence of brackets is considered to be balanced if the
 Given n strings of brackets, determine whether each sequence of brackets is balanced. If a string is balanced, print YES on a new line; otherwise, print NO on a new line.
 */
 
-#include <iostream>
-#include <string>
 #include <stack>
-#include <map>
+#include <iostream>
+using namespace std;
 
-
-void setBracketMapping(std::map<char, char>& mapping){
-    mapping.insert(std::pair<char, char> ('(', ')'));
-    mapping.insert(std::pair<char, char> ('{', '}'));
-    mapping.insert(std::pair<char, char> ('[', ']'));
-}
-
-
-char getMappedBracket(std::map<char, char> mapping, char target){
-    for(auto itr = mapping.begin(); itr != mapping.end(); itr++){
-        if(itr->first == target){
-            return itr->second;    
-        }
-    }
-    return 'X';
-}
-
-
-bool isValid(std::string s){
-    std::stack <char> brackets;
-    std::map <char, char> bracketMapping;
-    setBracketMapping(bracketMapping);
-    char lastBracket, currentBracket, expectedBracket;
-    brackets.push(s[0]);
-    for(unsigned int i = 1; i < s.length(); i++){
-        lastBracket = brackets.top();
-        expectedBracket = getMappedBracket(bracketMapping, lastBracket);
-        currentBracket = s[i];
-        if(currentBracket == expectedBracket){
-            brackets.pop();
-        }
+bool is_balanced(string expression){
+    stack <char> chars;
+    char c;
+    for(char c : expression){
+        if (c == '{') chars.push('}');
+        else if (c == '(') chars.push(')');
+        else if (c == '[') chars.push(']');
         else{
-            brackets.push(s[i]);
+            if (chars.empty() or c != chars.top()) return false;
+            chars.pop();
         }
     }
-    if(brackets.empty()){
-        return true;
+    return chars.empty();
+}
+
+int main(){
+    int t;
+    cin >> t;
+    for(int a0 = 0; a0 < t; a0++){
+        string expression;
+        cin >> expression;
+        bool answer = is_balanced(expression);
+        if(answer)
+            cout << "YES\n";
+        else cout << "NO\n";
     }
-    else{
-        return false;
-    }
-}    
-    
-    
-int main()
-{
-    std::string brackets = "((){})";
-    if (isValid(brackets)){
-        std::cout << "Balanced.\n";
-    }
-    else{
-        std::cout << "Not Balanced.\n";
-    }
+    return 0;
 }
