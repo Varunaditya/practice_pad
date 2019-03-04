@@ -7,9 +7,7 @@ def get_indices(string: str) -> dict:
         if letter not in ret_dict:
             ret_dict[letter] = [index]
         else:
-            target_value = ret_dict[letter]
-            target_value.append(index)
-            ret_dict[letter] = target_value
+            ret_dict[letter].append(index)
     return ret_dict
 
 
@@ -24,7 +22,8 @@ def get_substring(string: str) -> str:
     ret_obj = list()
     for i in index_table.items():
         indices = [j for j in combinations(i[1], 2) if j[0] < j[1]]
-        palindromes = [string[j[0]:j[1]+1] for j in indices if is_palindrome(string[i[0]:i[1]+1])]
+        strings = [string[j[0]:j[1]+1] for j in indices]
+        palindromes = [j for j in strings if j == j[::-1]]
         ret_obj.append(sorted(palindromes, key=lambda x: -len(x))[0])
     return sorted(ret_obj, key=lambda x: -len(x))[0]
 
