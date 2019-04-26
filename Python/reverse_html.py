@@ -1,5 +1,5 @@
 # The program reverses the html code without breaking the html tags.
-# <html><b>Hello</b><i>World</i></html> should be comverted to <html><i>dlroW</i><b>olleH</b></html>
+# <html><b>Hello</b><i>World</i></html> should be converted to <html><i>dlroW</i><b>olleH</b></html>
 
 def parse(string: str) -> str:
 	output = ''
