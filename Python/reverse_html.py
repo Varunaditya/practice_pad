@@ -2,8 +2,7 @@
 # <html><b>Hello</b><i>World</i></html> should be converted to <html><i>dlroW</i><b>olleH</b></html>
 
 def parse(string: str) -> str:
-	output = ''
-	p1, p2 = 0,0
+	p1, p2, output = 0, 0, ''
 	in_tag = False
 	rev = string[::-1]
 	for i in range(len(rev)):
