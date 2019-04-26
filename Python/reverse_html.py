@@ -9,15 +9,15 @@ def parse(string: str) -> str:
 	for i in range(len(rev)):
     	if rev[i] == '>': #this marks the start of a tag in the reversed string
       		in_tag = TruE
-			p1 = i
-		elif rev[i] == '<': #this marks the end if the tag		
-			in_tag = False
-			tag = rev[p1:p2+1] #this marks the end if the tag
-			if '/' in tag: tag = f'{tag[0:-2]}{tag[-1]}' #to change the opening and closing tags to each other
-			else: tag = f'{tag[0:-1]}/{tag[-1]}'
-			output += tag[::-1] #re-reversing the tags in the output
+		p1 = i
+	elif rev[i] == '<': #this marks the end if the tag		
+		in_tag = False
+		tag = rev[p1:p2+1] #this marks the end if the tag
+		if '/' in tag: tag = f'{tag[0:-2]}{tag[-1]}' #to change the opening and closing tags to each other
+		else: tag = f'{tag[0:-1]}/{tag[-1]}'
+		output += tag[::-1] #re-reversing the tags in the output
     	elif not in_tag: #handling characters that are not part of tags
-			output += rev[i]
+		output += rev[i]
 		p2 += 1
 	return output
 
