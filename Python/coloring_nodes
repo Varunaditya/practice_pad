@@ -1,0 +1,20 @@
+#!/usr/bin/python3
+
+"""
+Given an undirected graph represented as an adjacency matrix and an integer k, write a function to determine whether
+each vertex in the graph can be colored such that no two adjacent vertices share the same color using at most k colors.
+"""
+
+
+def can_be_colored(mat: list, k: int) -> bool:
+    for i in range(len(mat)):
+      if sum(mat[i]) > k: return False
+    return True
+
+
+#driver function
+if __name__ == '__main__':
+    adj_mat = [[2,1,0,0,1,0], [1,0,1,0,1,0], [0,1,0,1,0,0], [0,0,1,0,1,1], [1,1,0,1,0,0], [0,0,0,1,0,0]]
+    k = 2
+    if can_be_colored(adj_mat, k): print(True)
+    else: print(False)
