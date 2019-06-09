@@ -21,8 +21,7 @@ def can_be_divided(nums: list) -> bool:
 
 def main():
     nums = [15, 5, 20, 10, 35, 15, 10]
-    res = can_be_divided(nums)
-    print(f'Can Be Divided: {res}')
+    print(f'Can Be Divided: {can_be_divided(nums)}')
 
 
 if __name__ == '__main__':
